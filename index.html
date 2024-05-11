@@ -6,18 +6,18 @@
     <link href="css/main.css" rel="stylesheet" />
     <script src="js/vendor/angular.min.js"></script>
   </head>
-  <body>
+  <body ng-app="OutboxApp">
     <div class="header">
       <div class="container">
         <img src="img/logo.svg" width="140" height="150">
       </div>
     </div>
 
-    <div class="main">
+    <div class="main" ng-controller="HomeController">
       <div class="container">
 
         <div class="email" ng-repeat="email in emails">
-          <span class="from"> </span> <span class="subject"> </span><span class="date"> </span>
+          <span class="from">{{ email.from }}</span><span class="subject">{{ email.subject }}</span><span class="date">{{ email.datetime | date }}</span>
         </div>
 
       </div>
@@ -30,6 +30,7 @@
     <script src="js/controllers/HomeController.js"></script>
 
     <!-- Services -->
+    <script src="js/services/emails.js"></script>
     
   </body>
 </html>
